@@ -181,14 +181,21 @@ def repository_analysis():
         source_array = []
 
     # Extract content pieces using regex
+    print(final_text)
     content_regex = r'data:\s*{\s*"content":\s*"([^"]+)"\s*}'
     content_pieces = re.findall(content_regex, final_text)
     clean_content = "\n\n".join(content_pieces).strip()
+    # Step 1: Remove extra spaces
+    cleaned_paragraph = re.sub(r'\s+', ' ', clean_content)
+    # Step 2: Fix newline and space issues
+    formatted_paragraph = cleaned_paragraph.replace("\\n", "\n")
 
+    print(formatted_paragraph)
+    print(clean_content)
     return jsonify({
         "message": "Repository fetched successfully!",
         "source": source_array,
-        "content": clean_content
+        "content": formatted_paragraph
     })
 
 def get_repository(repository, branch):
