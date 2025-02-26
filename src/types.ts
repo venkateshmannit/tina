@@ -1,30 +1,23 @@
+// src/types.ts
 export interface User {
   username: string;
   api_key: string;
+  authType: 'github' | 'password';
 }
 
-// src/types.ts
+export interface AuthContextType {
+  user: User | null;
+  login: (username: string, api_key: string, authType?: 'github' | 'password') => void;
+  logout: () => void;
+}
+
+export interface RepositoryResponse {
+  message?: string;
+  source?: string[];
+  content: string;
+}
+
 export interface Repository {
-  id: number;
-  node_id: string;
-  name: string;
   full_name: string;
-  description: string | null; // Allow null values
-  // ... include other properties as needed
-}
-
-
-export interface LoginResponse {
-  message: string;
-  username: string;
-  api_key: string;
-}
-
-export interface RegistrationResponse {
-  message: string;
-}
-
-export interface ApiError {
-  message: string;
-  error?: string;
+  description?: string;
 }
