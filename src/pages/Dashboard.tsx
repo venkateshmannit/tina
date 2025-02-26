@@ -289,7 +289,7 @@ export const Dashboard: React.FC = () => {
                   onClick={handleClearAnalysis}
                   className="mt-2 w-full py-2 px-4 text-white bg-gray-600 hover:bg-gray-700 rounded-md font-medium shadow-sm transition-colors"
                 >
-                  Clear Analysis
+                  Project Analysis
                 </button>
               )}
             </div>
@@ -300,12 +300,14 @@ export const Dashboard: React.FC = () => {
             <div className="bg-gray-50 p-4 rounded-lg shadow-inner transition-all duration-300">
               <h3 className="text-lg font-semibold text-gray-900">Analysis Result</h3>
               <div className="p-4 border border-gray-300 rounded-lg bg-white shadow-md">
+                <h2><u> Source Code Reference </u></h2>
                 <h3 className="font-semibold text-indigo-700">
                   {response.source && response.source.length > 0
                     ? response.source.join(', ')
                     : 'No source information available'}
                 </h3>
                 <div className="text-gray-700 mt-2 whitespace-pre-line">
+                <h2><u> Project Reference </u></h2>
                   {response.content}
                 </div>
               </div>

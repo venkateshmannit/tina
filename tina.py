@@ -181,7 +181,7 @@ def repository_analysis():
         source_array = []
 
     # Extract content pieces using regex
-    print(final_text)
+    #print(final_text)
     content_regex = r'data:\s*{\s*"content":\s*"([^"]+)"\s*}'
     content_pieces = re.findall(content_regex, final_text)
     clean_content = "\n\n".join(content_pieces).strip()
@@ -191,7 +191,7 @@ def repository_analysis():
     formatted_paragraph = cleaned_paragraph.replace("\\n", "\n")
 
     print(formatted_paragraph)
-    print(clean_content)
+    #print(clean_content)
     return jsonify({
         "message": "Repository fetched successfully!",
         "source": source_array,
